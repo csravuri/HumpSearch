@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HumpSearch"
         mc:Ignorable="d"
-        Title="Hump-Search" Height="450" Width="800">
-    <StackPanel>
-        <Grid Margin="10">
+        Title="Hump Search" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="4*"/>
@@ -15,23 +21,72 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0">Search In</TextBlock>
-            <TextBox Grid.Column="1" Margin="0 0 5 0"/>
-            <Button Grid.Column="2" x:Name="btnBrowse" Margin="10 0 0 0">Browse</Button>
+            <TextBox Grid.Column="1" Margin="0,0,5,0" x:Name="txtFolderPath" GotFocus="TxtBox_GotFocus" MouseDoubleClick="TxtBox_GotFocus"/>
+            <Button Grid.Column="2" x:Name="btnBrowse" Click="BtnBrowse_Click" Margin="10 0 0 0">Browse</Button>
         </Grid>
 
-        <Grid Margin="10">
+        <Grid Grid.Row="1" Margin="0,5,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0">Key Word</TextBlock>
-            <TextBox Grid.Column="1" x:Name="txtKeyWord"/>
-            <RadioButton Grid.Column="2"></RadioButton>
-            <Button Grid.Column="3" x:Name="btnSearch">Search</Button>
+            <TextBlock Grid.Column="0" Text="Search For" VerticalAlignment="Center" />
+            <TextBox Grid.Column="1" GotFocus="TxtBox_GotFocus" MouseDoubleClick="TxtBox_GotFocus" x:Name="txtKeyWord" VerticalAlignment="Center" Height="Auto"/>
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <Label Content="Search File" VerticalAlignment="Center"/>
+                <StackPanel Margin="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
+                        <Label Content="Name" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="isName" IsChecked="True" VerticalAlignment="Center" />    
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Label Content="Content" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="isContent" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                </StackPanel>
+            </StackPanel>
+            <Button Grid.Column="3" x:Name="btnSearch" Click="BtnSearch_Click" Content="Search" VerticalAlignment="Center"/>
         </Grid>
 
+        <Grid Grid.Row="2" Margin="0,0,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
 
-    </StackPanel>
+            <Label BorderBrush="Orange" BorderThickness="2,2,2,0" Grid.Column="0" Content="Name"/>
+            <Label BorderBrush="Orange" BorderThickness="0,2,2,0" Grid.Column="1" Padding="15,0,0,0" Content="Size"/>
+            <Label BorderBrush="Orange" BorderThickness="0,2,2,0" Grid.Column="2" Padding="0,0,5,0" Content="Modified Date" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right"/>
+        </Grid>
+
+        <ListView x:Name="listView" 
+                  Grid.Row="3"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Stretch"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  MouseDoubleClick="ListView_MouseDoubleClick"
+                  Background="PaleGreen">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label HorizontalAlignment="Stretch" Grid.Column="0" Content="{Binding Name}"/>
+                        <Label BorderBrush="Orange" VerticalAlignment="Stretch" BorderThickness="2,0,0,0" HorizontalAlignment="Stretch" Grid.Column="1" Content="{Binding Size}"/>
+                        <Label BorderBrush="Orange" BorderThickness="2,0,0,0" HorizontalAlignment="Stretch" Grid.Column="2" Content="{Binding ModifiedDate}" HorizontalContentAlignment="Right"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+
+
+    </Grid>
 </Window>

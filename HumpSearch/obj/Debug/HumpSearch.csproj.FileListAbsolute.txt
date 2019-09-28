@@ -1,7 +1,6 @@
 D:\Applications\cSharp\HumpSearch\HumpSearch\bin\Debug\HumpSearch.exe.config
 D:\Applications\cSharp\HumpSearch\HumpSearch\bin\Debug\HumpSearch.exe
 D:\Applications\cSharp\HumpSearch\HumpSearch\bin\Debug\HumpSearch.pdb
-D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\HumpSearch.csprojAssemblyReference.cache
 D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\MainWindow.g.cs
 D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\App.g.cs
 D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\HumpSearch_MarkupCompile.cache
@@ -13,3 +12,5 @@ D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\HumpSearch.csproj.Generat
 D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\HumpSearch.csproj.CoreCompileInputs.cache
 D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\HumpSearch.exe
 D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\HumpSearch.pdb
+D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\Views\FilePreviewWindow.g.cs
+D:\Applications\cSharp\HumpSearch\HumpSearch\obj\Debug\Views\FilePreviewWindow.baml
