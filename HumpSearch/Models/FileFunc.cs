@@ -62,7 +62,7 @@ namespace HumpSearch.Models
 
         private void GetContentSearchResult(string[] allFiles, List<FileProp> fileProps, FileSearchCriteria fileSearchCriteria)
         {
-            foreach (string eachFile in allFiles.Where(x => !x.ToLower().Contains(fileSearchCriteria.searchKeyWord.ToLower())))
+            foreach (string eachFile in allFiles)
             {
                 if (isFileContainsKeyWord(eachFile, fileSearchCriteria.searchKeyWord))
                 {
